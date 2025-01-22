@@ -5,8 +5,49 @@ html, body {
   height: 100%;
   overflow: hidden;
   background: #000;
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
   color: #fff;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000; /* Sfondo nero */
+}
+
+.welcome-container {
+  text-align: center;
+}
+
+.logo {
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.enter-button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.enter-button:hover {
+  background-color: #0056b3;
+}
+
+/* Ottimizzazione per dispositivi mobili */
+@media (max-width: 600px) {
+  .enter-button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
 }
 
 .rotate-message {
