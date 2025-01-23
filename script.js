@@ -115,3 +115,27 @@ printBtn.addEventListener('click', () => {
     printWindow.close();
   };
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const flashBtn = document.getElementById('flash-btn');
+  let flashActive = false;
+
+  flashBtn.addEventListener('click', () => {
+    flashActive = !flashActive;
+    if (flashActive) {
+      flashBtn.textContent = 'Disattiva Flash';
+      // Logica per attivare il flash
+      // Questo è un esempio e potrebbe non funzionare su tutti i dispositivi
+      const track = video.srcObject.getVideoTracks()[0];
+      const imageCapture = new ImageCapture(track);
+      imageCapture.getPhotoCapabilities().then(() => {
+        track.applyConstraints({ advanced: [{ torch: true }] });
+      });
+    } else {
+      flashBtn.textContent = 'Attiva Flash';
+      // Logica per disattivare il flash
+      const track = video.srcObject.getVideoTracks()[0];
+      track.applyConstraints({ advanced: [{ torch: false }] });
+    }
+  });
+});
